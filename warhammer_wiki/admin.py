@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import factions
+from .models import Factions
 
 # Register your models here.
 
-admin.site.register(factions)
+admin.site.register(Factions)

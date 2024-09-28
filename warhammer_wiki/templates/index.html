@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Template • TodoMVC</title>
+
+<link rel="stylesheet" href="./app.css">
+</head>
+<body>
+{% for form in forms %}
+    {{ form.name }}
+    <p>{{ form.description}}</p>
+{% endfor %}
+{% for form in forms %}
+    <form action="{{ form.action }}" method="post">
+        {% for field in form.fields %}
+            <label for="{{ field.name }}">{{ field.label }}</label>
+            <input type="{{ field.type }}" name="{{ field.name }}" id="{{ field.name }}">
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+{% endfor %}
+</body>
+</html>
