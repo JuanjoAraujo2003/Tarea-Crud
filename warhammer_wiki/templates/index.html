@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Template • TodoMVC</title>
 
-<link rel="stylesheet" href="./app.css">
 </head>
 <body>
-{% for form in forms %}
-    {{ form.name }}
-    <p>{{ form.description}}</p>
+{% for faction in factions %}
+    {{ faction.name }}
+    <p>{{ faction.description}}</p>
+    
 {% endfor %}
-{% for form in forms %}
-    <form action="{{ form.action }}" method="post">
-        {% for field in form.fields %}
-            <label for="{{ field.name }}">{{ field.label }}</label>
-            <input type="{{ field.type }}" name="{{ field.name }}" id="{{ field.name }}">
+
+    <form method="post" action="{% url "index" %}">
+        {% csrf_token %}
+        {% for field in form %}
+        <p> {{ field.label }} </p>
+        {{ field }}
         {% endfor %}
-        <input type="submit" value="Submit">
+        <button name="save"> Guardar </button>
     </form>
-{% endfor %}
 </body>
 </html>
