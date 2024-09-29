@@ -5,8 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Template • TodoMVC</title>
 
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+>
+
 </head>
+
 <body>
+
+    <h1 style="text-align:center";> Warhammer Wiki </h1>
+
+    <h2> Autor: Juan Araujo </h2>
+
 {% for faction in factions %}
     {{ faction.name }}
     <p>{{ faction.description}}</p>
@@ -18,7 +29,7 @@
     <form method="get" action="{% url "update_faction" faction.id %}">
         {% csrf_token %}
         <button type="submit"> Actualizar </button>
-    <form>
+    </form>
 
 {% endfor %}
 
@@ -28,7 +39,7 @@
         <p> {{ field.label }} </p>
         {{ field }}
         {% endfor %}
-        <button name="save" type="submit"> Guardar </button>
+        <button name="save"> Guardar </button>
     </form>
 </body>
 </html>

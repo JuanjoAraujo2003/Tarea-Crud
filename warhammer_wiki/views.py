@@ -12,10 +12,12 @@ class FactionView(viewsets.ModelViewSet):
 
 def index(request):
     if request.method == 'POST':
-            form = CreateNewFaction(request.POST)
-            if form.is_valid():
+        form = CreateNewFaction(request.POST)
+        if form.is_valid():
+            if "save" in request.POST:
                 form.save()
                 return redirect(reverse('index'))
+            
     else:
         form = CreateNewFaction()
                 
