@@ -18,20 +18,34 @@
 
     <h2> Autor: Juan Araujo </h2>
 
-{% for faction in factions %}
-    {{ faction.name }}
-    <p>{{ faction.description}}</p>
-    <form method="post" action="{% url "delete_faction" faction.id %}"> 
-        {% csrf_token %}
-        <button type="submit"> Borrar </button>
-
-    </form>
-    <form method="get" action="{% url "update_faction" faction.id %}">
-        {% csrf_token %}
-        <button type="submit"> Actualizar </button>
-    </form>
-
-{% endfor %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for faction in factions %}
+            <tr>
+                <td>{{ faction.name }}</td>
+                <td>{{ faction.description }}</td>
+                <td>
+                    <form method="post" action="{% url "delete_faction" faction.id %}"> 
+                        {% csrf_token %}
+                        <button type="submit"> Borrar </button>
+                
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{% url "update_faction" faction.id %}">
+                        {% csrf_token %}
+                        <button type="submit"> Actualizar </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
 
     <form method="post" action="{% url "index" %}">
         {% csrf_token %}
