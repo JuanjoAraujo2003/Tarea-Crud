@@ -10,7 +10,16 @@
 {% for faction in factions %}
     {{ faction.name }}
     <p>{{ faction.description}}</p>
-    
+    <form method="post" action="{% url "delete_faction" faction.id %}"> 
+        {% csrf_token %}
+        <button type="submit"> Borrar </button>
+
+    </form>
+    <form method="get" action="{% url "update_faction" faction.id %}">
+        {% csrf_token %}
+        <button type="submit"> Actualizar </button>
+    <form>
+
 {% endfor %}
 
     <form method="post" action="{% url "index" %}">
@@ -19,7 +28,7 @@
         <p> {{ field.label }} </p>
         {{ field }}
         {% endfor %}
-        <button name="save"> Guardar </button>
+        <button name="save" type="submit"> Guardar </button>
     </form>
 </body>
 </html>

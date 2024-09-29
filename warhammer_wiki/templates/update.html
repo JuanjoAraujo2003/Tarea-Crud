@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Actualizar Facción</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <p>{{ field.label }}</p>
+        {{ field }}
+    {% endfor %}
+    <button type="submit">Guardar cambios</button>
+</form>
+</body>
+</html>
