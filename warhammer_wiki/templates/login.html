@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warhammer Login</title>
+    <style>
+        .form{
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
 
 <link
   rel="stylesheet"
@@ -13,8 +19,9 @@
 </head>
 <body>
 
-    <div class="container medium">
-        <h2 style="text-align:center";>Warhammer Login</h2>
+    <main class="container medium">
+        <div class="form">
+            <h2 style="text-align:center";>Warhammer Login</h2>
 
         {% if form.non_field_errors %}
             <div class="error">
@@ -38,8 +45,10 @@
             <button type="submit">Login</button>
             
         </form>
+        </div>
         
-    </div>
+        
+    </main>
 
 </body>
 </html>
